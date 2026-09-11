@@ -11,11 +11,11 @@ services:
       # IP privada (o hostname resoluble) de la VM/contenedor de base de
       # datos. Debe venir del .env de esta VM — no hay valor por defecto
       # a propósito, para no arrancar apuntando a localhost por error.
-      DB_HOST: ${DB_HOST:?Debes definir DB_HOST con la IP privada de la VM de base de datos}
+      DB_HOST: ${DB_HOST:-172.31.7.86}
       DB_PORT: ${DB_PORT:-5432}
-      DB_NAME: ${DB_NAME:-vehiculos_db}
+      DB_NAME: ${DB_NAME:-db_vehiculos}
       DB_USER: ${DB_USER:-postgres}
-      DB_PASSWORD: ${DB_PASSWORD:-postgres}
+      DB_PASSWORD: ${DB_PASSWORD:-postgrespassword}
       SEED_ENABLED: ${SEED_ENABLED:-false}
     ports:
       - "8002:8080"         # En producción, este puerto queda detrás del balanceador / API Gateway
